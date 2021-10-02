@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<windows.h>
 #include<stdlib.h>
@@ -104,6 +103,8 @@ int main()
 					totMain = totMain + totDouble;
 				} 
 				break;
+					default:
+					system("cls"); 
 				}
 			} while (main <= 3); 
 		} break; 
@@ -143,8 +144,10 @@ int main()
 					cin >> qtyA;
 					totA = totA + (160 * qtyA);
 					totSpecial = totSpecial + totA;
-				} break; //end of switch(necklace): case 3
-				} //end of Switch (necklace)
+				} break;
+					default:
+					system("cls"); 
+				} 
 			} while (special <= 3);
 		} break; 
 
@@ -184,6 +187,8 @@ int main()
 					totFried = 	totFried + (100 * qtyFried);
 					totStatement = totStatement + 	totFried;
 				} break;
+				default:
+					system("cls");
 				}
 			} while (statement <= 3); 
 		} break;
@@ -229,18 +234,19 @@ int main()
 
 	} while (Payment < totCost);
 	
-	int pwdsc;
-	cout << " Are you a PWD/Senior Citizen? \n";
-	cout << " [choose 1] Yes \n";
-	cout << " [choose 2] No  ";
-	cin >> pwdsc;
-	cout<<"Enter 12345 to continue the discount  = ";
+	int discount;
 	
-	if( pwdsc==1){
-		int user;
+
+	cout << " [choose 1] PWD/Senior Citizen \n";
+	cout << " [choose 2] Student  \n";
+	cout << " [choose 3] Voucher Codes  \n"; 
+	cout << " [choose 4] None \n";
+	cout << " Please choose one to avail discount: ";
 	
-		scanf("\n %d",&user);
-		if(user==12345){
+	cin >> discount;
+	
+	//Senior/PWD Discounts
+	if(discount==1){
 		
 	double OriginalPrice = totCost;
     double DiscountAmount = totCost * 20 / 100;
@@ -254,16 +260,203 @@ int main()
     cout << "\nNet Price:       P" << NetPrice;
     cout << "\nTotal:           P" << PriceAfterDiscount;
     
-    //double Change;
-
-    //cout << "\nEnter your payment: ";
-    //cin >> Change;
 	double Change = Payment- PriceAfterDiscount;
 	cout << "\nChange:          P" << Change;
-}
+	}
+	
+	//Student Discount
+	else if(discount==2){
+		
+		int marks[3], i;
+        float sum=0,avg;
 
-}
-	else if ( pwdsc==2){
+        cout<<"\n Enter your mark to the following subjects validate the discount; \n";
+        cout<<"-------------------------------------------------";
+        cout<<"\n English : ";
+        cin>>marks[0];
+        cout<<"\n Maths : ";
+        cin>>marks[1];;
+        cout<<"\n Science : ";
+        cin>>marks[2];
+
+        for(i=0;i<3;i++)
+        {
+                sum=sum+marks[i];
+        }
+        cout<<"-------------------------------------------------";
+        cout<<"\n Total Marks of Student = "<<sum;
+        avg=sum/3;
+        cout<<"\n Average = "<<avg<<"\n";
+
+		//if the student have a 91 GWA above they will have 8% discount
+        if(avg>91)
+        {
+        double OriginalPrice = totCost;
+    	double DiscountAmount = totCost * 8/ 100;
+    	double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    	double TaxAmount = PriceAfterDiscount * 10 / 100;
+    	double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    		cout << "\nSubtotal:        P" << OriginalPrice;
+    		cout << "\nDiscount:        P" << DiscountAmount;
+    		cout << "\nTax Amount:      P" << TaxAmount;
+    		cout << "\nNet Price:       P" << NetPrice;
+    		cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+			double Change = Payment- PriceAfterDiscount;
+			cout << "\nChange:          P" << Change;
+			
+			cout <<"\n\n Keep it up!The Burger++ is happy to serve you";
+        }
+        
+        //if the student have a 85-90 GWA they will have 5% discount
+        else if(avg>=85 && avg<=90)
+        {
+        double OriginalPrice = totCost;
+    	double DiscountAmount = totCost * 5/ 100;
+    	double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    	double TaxAmount = PriceAfterDiscount * 10 / 100;
+    	double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    		cout << "\nSubtotal:        P" << OriginalPrice;
+    		cout << "\nDiscount:        P" << DiscountAmount;
+    		cout << "\nTax Amount:      P" << TaxAmount;
+    		cout << "\nNet Price:       P" << NetPrice;
+    		cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+			double Change = Payment- PriceAfterDiscount;
+			cout << "\nChange:          P" << Change;
+			
+			cout <<"\n\n Keep it up!The Burger++ is happy to serve you";
+        }
+		
+		//if the student did not reach the grade limit they will have no discount
+		else{
+			cout<<"\n discount not applied";
+			
+		double Change1 = Payment- totCost;
+		double TaxAmount = totCost * 10 / 100;
+    	double NetPrice = totCost + TaxAmount;
+		
+		cout << "\nSubtotal:        P" << totCost;
+    	cout << "\nTax Amount:      P" << TaxAmount;
+    	cout << "\nNet Price:       P" << NetPrice;
+    	cout << "\nTotal:           P" << totCost;
+		cout << "\nChange:          P" << Change1;
+		
+		cout <<"\n\n Keep it up!The Burger++ is happy to serve you";
+		}
+		
+	}
+	
+	
+	//Voucher code(Please read the README.txt file so you can now the voucher codes.
+	//The codes will change according to the management
+	else if(discount==3){
+		int cust;
+	
+		cout<<"\n Please enter your voucher code  = ";
+		scanf("\n %d",&cust);
+		
+		//If the customer shows the "4852" code they will have 50% discount
+		if(cust==4852){
+		
+		double OriginalPrice = totCost;
+    	double DiscountAmount = totCost * 50 / 100;
+    	double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    	double TaxAmount = PriceAfterDiscount * 10 / 100;
+    	double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    		cout << "\nSubtotal:        P" << OriginalPrice;
+    		cout << "\nDiscount:        P" << DiscountAmount;
+    		cout << "\nTax Amount:      P" << TaxAmount;
+    		cout << "\nNet Price:       P" << NetPrice;
+    		cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+			double Change = Payment- PriceAfterDiscount;
+			cout << "\nChange:          P" << Change;
+		}
+		
+		//If the customer shows the "4360" code they will have 40% discount
+		else if(cust==4360){
+		
+		double OriginalPrice = totCost;
+    	double DiscountAmount = totCost * 40 / 100;
+    	double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    	double TaxAmount = PriceAfterDiscount * 10 / 100;
+    	double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    		cout << "\nSubtotal:        P" << OriginalPrice;
+    		cout << "\nDiscount:        P" << DiscountAmount;
+    		cout << "\nTax Amount:      P" << TaxAmount;
+    		cout << "\nNet Price:       P" << NetPrice;
+    		cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+			double Change = Payment- PriceAfterDiscount;
+			cout << "\nChange:          P" << Change;
+	}
+	
+		//If the customer shows the "7768" code they will have 30% discount
+			else if(cust==7768){
+		
+		double OriginalPrice = totCost;
+    	double DiscountAmount = totCost * 30 / 100;
+    	double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    	double TaxAmount = PriceAfterDiscount * 10 / 100;
+    	double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    		cout << "\nSubtotal:        P" << OriginalPrice;
+    		cout << "\nDiscount:        P" << DiscountAmount;
+    		cout << "\nTax Amount:      P" << TaxAmount;
+    		cout << "\nNet Price:       P" << NetPrice;
+    		cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+			double Change = Payment- PriceAfterDiscount;
+			cout << "\nChange:          P" << Change;
+	}
+	
+		//If the customer shows the "7878" code they will have 20% discount
+			else if(cust==7878){
+		
+		
+		double OriginalPrice = totCost;
+    	double DiscountAmount = totCost * 20 / 100;
+    	double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    	double TaxAmount = PriceAfterDiscount * 10 / 100;
+    	double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    		cout << "\nSubtotal:        P" << OriginalPrice;
+    		cout << "\nDiscount:        P" << DiscountAmount;
+    		cout << "\nTax Amount:      P" << TaxAmount;
+    		cout << "\nNet Price:       P" << NetPrice;
+    		cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+			double Change = Payment- PriceAfterDiscount;
+			cout << "\nChange:          P" << Change;
+		}
+		
+		//If the customer shows the "3366" code they will have 10% discount
+			else if(cust==3366){
+		
+		double OriginalPrice = totCost;
+    	double DiscountAmount = totCost * 10 / 100;
+    	double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    	double TaxAmount = PriceAfterDiscount * 10 / 100;
+    	double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    		cout << "\nSubtotal:        P" << OriginalPrice;
+    		cout << "\nDiscount:        P" << DiscountAmount;
+    		cout << "\nTax Amount:      P" << TaxAmount;
+    		cout << "\nNet Price:       P" << NetPrice;
+    		cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+			double Change = Payment- PriceAfterDiscount;
+			cout << "\nChange:          P" << Change;
+		}
+		
+		//If the code are not match with any of the following given voucher, they have no discount
+		else {
+		cout<< "Your voucher code is invalid";
 		
 		double Change1 = Payment- totCost;
 		double TaxAmount = totCost * 10 / 100;
@@ -274,8 +467,29 @@ int main()
     	cout << "\nNet Price:       P" << NetPrice;
     	cout << "\nTotal:           P" << totCost;
 		cout << "\nChange:          P" << Change1;
+				
+		}
+		
 	}
 	
+	//If they can't present anything, the system will generate their bill
+	else if (discount==4){	
+	
+		double Change1 = Payment- totCost;
+		double TaxAmount = totCost * 10 / 100;
+    	double NetPrice = totCost + TaxAmount;
+		
+		cout << "\nSubtotal:        P" << totCost;
+    	cout << "\nTax Amount:      P" << TaxAmount;
+    	cout << "\nNet Price:       P" << NetPrice;
+    	cout << "\nTotal:           P" << totCost;
+		cout << "\nChange:          P" << Change1;
+	
+	}
+	
+	else{
+		system("cls");
+	}
 	cout<<"\n-------------------------------------------------------\n";
 	cout<<"         THANK YOU FOR BUYING, HAVE A GOOD DAY!        \n";
 
@@ -381,14 +595,14 @@ void welcome() {
 	for(int wlc=0; wlc<strlen(welcome);wlc++){
 
 		printf(" %c",welcome[wlc]);
-		Sleep(100);
+		Sleep(200);
 	}
 
 	printf("\n\n\t\t\t\t ");
 	for(int wlc2=0; wlc2<strlen(welcome2) ;wlc2++){
 
 		printf(" %c",welcome2[wlc2]);
-		Sleep(100);
+		Sleep(200);
 	}
 
 	printf("\n\n\t\t\t ");
@@ -402,7 +616,7 @@ void welcome() {
 			printf(" %c",welcome3[wlc3]);
 		}
 
-		Sleep(100);
+		Sleep(200);
 	}
 }
 
@@ -424,8 +638,7 @@ void load()
 	gotoxy(30,16);
 	for(int r =1; r<=20; r++)
 	{
-		for(int q=0; q<=10000000; q++);
+		for(int q=0; q<=100000000; q++);
 		cout << a;
 	}
 }
-
