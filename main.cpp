@@ -117,7 +117,7 @@ int main()
 				cout<<"\t\t\t|                    SPECIAL CLASSES                    |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
 				
-				cout<<"\n1 "<<special1<<" P180"<<"(four cheese as main ingredientsâ€”mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
+				cout<<"\n1 "<<special1<<" P180"<<"(four cheese as main ingredients—mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
 				cout<<"2 "<<special2<<" P150"<<"(buns, beef patty, barbecue sauce, bacon, onions, lettuce, tomato) \n";
 				cout<<"3 "<<special3<<" P160"<<" (buns, double patty, bacon, four cheese, tomato, onion, lettuce) \n";
 				cout << "4) Go Back to Menu\n";
@@ -428,3 +428,4 @@ void load()
 		cout << a;
 	}
 }
+
