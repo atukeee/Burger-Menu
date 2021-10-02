@@ -35,8 +35,8 @@ int main()
 	{
         cout << "                                      " << endl;
         cout << "                                      " << endl;
-        cout << "           T H A N K  Y O U           " << endl;
-        cout << "           F O R  U S I N G           " << endl;
+        cout << "           T H A N K  Y O U       \n\n" << endl;
+        cout << "           F O R  U S I N G       \n\n" << endl;
         cout << "        T H I S  P R O G R A M        " << endl;
         cout << "                                      " << endl;
         cout << "                                      " << endl;
@@ -63,7 +63,7 @@ int main()
 		cout<<"[Choice 2] Special Classes\n";
 		cout<<"[Choice 3] Statement Burgers\n";
 		cout<<"[Choice 4] Go Back \n";
-		cout<<"[Choice 5] Receipt\n";
+		cout<<"[Choice 5] Checkout \n";
 		
 		cout<<"\nPlease Enter your Choice: ";
 		cin >> trans;
@@ -117,9 +117,10 @@ int main()
 				cout<<"\t\t\t|                    SPECIAL CLASSES                    |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
 				
-				cout<<"\n1 "<<special1<<" P180"<<"(four cheese as main ingredients—mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
+				cout<<"\n1 "<<special1<<" P180"<<"(four cheese as main ingredientsâ€”mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
 				cout<<"2 "<<special2<<" P150"<<"(buns, beef patty, barbecue sauce, bacon, onions, lettuce, tomato) \n";
 				cout<<"3 "<<special3<<" P160"<<" (buns, double patty, bacon, four cheese, tomato, onion, lettuce) \n";
+				cout << "4) Go Back to Menu\n";
 				
 				cout<<"\nPlease Enter which special classes would you like to have?:";
 				cin>>special;
@@ -155,6 +156,7 @@ int main()
 				cout<<"\t\t\t|-------------------------------------------------------|\n";
 				cout<<"\t\t\t|                    STATEMENT BURGERS                  |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
+				cout << "4) Go Back to Menu\n";
 				
 				cout<<"\n1 "<<statement1<<" P180"<<"(buns, salmon, onions, tomato, lettuce) \n";
 				cout<<"2 "<<statement2<<" P150"<<"(buns, sliced ham, onions, tomato, lettuce) \n";
@@ -204,36 +206,85 @@ int main()
 		totCost = totMain + totSpecial + totStatement;
 
 		//Summary 
-		cout << "\n--------------------------------------------\n";
-		cout << "          Summary of Purchases              *\n";
-		cout << "  The Classic++              		   = " << totClassic << " \n";
-		cout << "  The Veggie++                       = " << totVeggie << " \n";
-		cout << "  The Double++                       = " << totDouble << " \n";
-		cout << "  The C (Cheese) Language            = " << totC << " \n";
-		cout << "  The B (Barbecue) Language          = " << totB << " \n";
-		cout << "  The A (All-In) Language            = " << totA << "\n";
-		cout << "  The Fish Statement                 = " << totFish << "\n";
-		cout << "  The Ham Statement                  = " << totHam << "\n";
-		cout << "  The Fried Statement                = " << totFried << "\n";
+		cout<<"\t\t\t|-------------------------------------------------------|\n";
+		cout<<"\t\t\t|                  SUMMARY OF PURCHASES                 |\n";
+		cout<<"\t\t\t|-------------------------------------------------------|\n\n";
+		
+		cout << " The Classic++              	   = " << totClassic << " \n";
+		cout << " The Veggie++                      = " << totVeggie << " \n";
+		cout << " The Double++                      = " << totDouble << " \n";
+		cout << " The C (Cheese) Language           = " << totC << " \n";
+		cout << " The B (Barbecue) Language         = " << totB << " \n";
+		cout << " The A (All-In) Language           = " << totA << "\n";
+		cout << " The Fish Statement                = " << totFish << "\n";
+		cout << " The Ham Statement                 = " << totHam << "\n";
+		cout << " The Fried Statement               = " << totFried << "\n";
 		cout << "                                            \n";
-		cout << "**********************************************\n";
-		cout << "*  Total Burger++ Bill             = " << totCost <<"\n";
-		cout << "**********************************************\n";
-
+		cout << "----------------------------------------------\n";
+		cout << "   Total Burger++ Bill             = " << totCost <<"\n";
+		cout << "----------------------------------------------\n";
+		
 		cout << "   Enter Payment                    = ";
 		cin >> Payment;
-	} while (Payment < totCost);
 
-	//Formula for change Note: Change should not be NEGATIVE used if else condition
-	change = Payment - totCost;
-	cout << "   Your Change                      = " << change;
-	cout << "\n**********************************************\n";
-	}//end of main()
+	} while (Payment < totCost);
+	
+	int pwdsc;
+	cout << " Are you a PWD/Senior Citizen? \n";
+	cout << " [choose 1] Yes \n";
+	cout << " [choose 2] No  ";
+	cin >> pwdsc;
+	cout<<"Enter 12345 to continue the discount  = ";
+	
+	if( pwdsc==1){
+		int user;
+	
+		scanf("\n %d",&user);
+		if(user==12345){
+		
+	double OriginalPrice = totCost;
+    double DiscountAmount = totCost * 20 / 100;
+    double PriceAfterDiscount = OriginalPrice - DiscountAmount;
+    double TaxAmount = PriceAfterDiscount * 10 / 100;
+    double NetPrice = PriceAfterDiscount + TaxAmount;
+
+    cout << "\nSubtotal:        P" << OriginalPrice;
+    cout << "\nDiscount:        P" << DiscountAmount;
+    cout << "\nTax Amount:      P" << TaxAmount;
+    cout << "\nNet Price:       P" << NetPrice;
+    cout << "\nTotal:           P" << PriceAfterDiscount;
+    
+    //double Change;
+
+    //cout << "\nEnter your payment: ";
+    //cin >> Change;
+	double Change = Payment- PriceAfterDiscount;
+	cout << "\nChange:          P" << Change;
+}
+
+}
+	else if ( pwdsc==2){
+		
+		double Change1 = Payment- totCost;
+		double TaxAmount = totCost * 10 / 100;
+    	double NetPrice = totCost + TaxAmount;
+		
+		cout << "\nSubtotal:        P" << totCost;
+    	cout << "\nTax Amount:      P" << TaxAmount;
+    	cout << "\nNet Price:       P" << NetPrice;
+    	cout << "\nTotal:           P" << totCost;
+		cout << "\nChange:          P" << Change1;
+	}
+	
+	cout<<"\n-------------------------------------------------------\n";
+	cout<<"         THANK YOU FOR BUYING, HAVE A GOOD DAY!        \n";
+
+}//end of main()
 
 
 	//Function for Developers
 	void developers(){
-	int choose=0;
+	int choose=0, goback;
 			
 	starting:
 	system("cls");
@@ -261,9 +312,18 @@ int main()
  		cout<<"            Parco,Lester Henry - BSIT              \n";
  		cout<<"            Jose, Kevin Isaiah - BSIT              \n";
  		cout<<"Instructor: Sir Joseph Luken Domingo               \n";
- 
+ 		
+ 		cout<<"\nPlease Enter 0 to go back to menu:";
+				cin>>goback;
+				
+				switch (goback) {
+				case 0: {
+					system("cls");
+					options();
+				} break;
 	 }
 
+}
 	 else if(choose==2)
 	 {
 		system("cls");
@@ -321,14 +381,14 @@ void welcome() {
 	for(int wlc=0; wlc<strlen(welcome);wlc++){
 
 		printf(" %c",welcome[wlc]);
-		Sleep(200);
+		Sleep(100);
 	}
 
 	printf("\n\n\t\t\t\t ");
 	for(int wlc2=0; wlc2<strlen(welcome2) ;wlc2++){
 
 		printf(" %c",welcome2[wlc2]);
-		Sleep(200);
+		Sleep(100);
 	}
 
 	printf("\n\n\t\t\t ");
@@ -342,7 +402,7 @@ void welcome() {
 			printf(" %c",welcome3[wlc3]);
 		}
 
-		Sleep(200);
+		Sleep(100);
 	}
 }
 
@@ -364,8 +424,7 @@ void load()
 	gotoxy(30,16);
 	for(int r =1; r<=20; r++)
 	{
-		for(int q=0; q<=100000000; q++);
+		for(int q=0; q<=10000000; q++);
 		cout << a;
 	}
 }
-
