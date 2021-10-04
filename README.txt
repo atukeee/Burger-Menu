@@ -1,3 +1,6 @@
+VOUCHER DETAILS
+------------
+
 The Burger++ Menu is happy to serve you that's why we have offer voucher codes,
 Please present the following codes to the cashier to avail the promo:
 

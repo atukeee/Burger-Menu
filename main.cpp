@@ -16,9 +16,8 @@ void options();
 void library();
 void developers();
 
-
-int main()
-{
+///START Structure Here
+int main(){
 	system("color 0c");
 	load();
 	system("cls");
@@ -29,19 +28,102 @@ int main()
 	cout << endl << endl << endl << endl << endl << endl << endl;
 }
 
-	//Exit Function		
-	void exit()
+//position
+void gotoxy(int x, int y){
+	COORD d;
+	d.X = x;
+	d.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), d);
+}
+
+//Loading screen function
+void load(){
+	char a = 219;
+	gotoxy(36, 14);
+	cout << "Loading..."<< endl;
+	gotoxy(30,16);
+	for(int r =1; r<=20; r++)
 	{
-        cout << "                                      " << endl;
-        cout << "                                      " << endl;
-        cout << "           T H A N K  Y O U       \n\n" << endl;
-        cout << "           F O R  U S I N G       \n\n" << endl;
-        cout << "        T H I S  P R O G R A M        " << endl;
-        cout << "                                      " << endl;
-        cout << "                                      " << endl;
+		for(int q=0; q<=10000000; q++);
+		cout << a;
 	}
+}
+
+//Introduction Title
+void welcome() {
+	char welcome[50]="WELCOME";
+	char welcome2[50]=" TO";
+	char welcome3[50]=" BURGER++";
+	printf("\n\n\n\n\n\t\t\t");
+	for(int wlc=0; wlc<strlen(welcome);wlc++){
+
+		printf(" %c",welcome[wlc]);
+		Sleep(100);
+	}
+
+	printf("\n\n\t\t\t\t ");
+	for(int wlc2=0; wlc2<strlen(welcome2) ;wlc2++){
+
+		printf(" %c",welcome2[wlc2]);
+		Sleep(100);
+	}
+
+	printf("\n\n\t\t\t ");
+	for(int wlc3=0; wlc3<strlen(welcome3) ;wlc3++){
+		if(welcome3[wlc3]!='D'){
+
+			printf(" %c",welcome3[wlc3]);
+		}
+		else{
+
+			printf(" %c",welcome3[wlc3]);
+		}
+
+		Sleep(200);
+	}
+}
+        
+    //Main menu
+	void options(){
+		char selection;
+
+	cout<<"\n Where do you want to go?";
+	cout<<"\n\n B - Burger++ Library";
+	cout<<"\n D - Developers";
+	cout<<"\n E - Exit";
 	
-	///START Structure Here
+	cout<<"\n\n Enter selection: ";
+
+// read the input 
+cin>>selection;
+
+ switch(selection){
+ 	system("cls");
+ 	
+	case 'B' :
+	case 'b':{ 
+		system("cls");
+		menu();
+		
+	}
+	break;
+	case 'D' :
+	case 'd' :{
+		system("cls");
+		developers();
+ }
+	break;
+	case 'E':
+	case 'e':{
+		system("cls");
+		exit();
+		break;
+	}
+
+	default : cout<<"\n Invalid selection";
+}
+	cout<<"\n";}
+
 	//The Menu Function
 	void menu(){
 		
@@ -75,29 +157,29 @@ int main()
 				cout<<"\t\t\t|-------------------------------------------------------|\n";
 				cout<<"\t\t\t|                     MAIN() CLASSICS                   |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
-				cout<<"\n1) "<<main1<<" (buns, beef patty, tomato, onions, lettuce, (one) cheese) \n";
-				cout<<"2) "<<main2<<" (buns, veggie patty, tomato, onions, pickles, mushrooms) \n";
-				cout<<"3) "<<main3<<"(buns, double beef patty, tomato, onions, lettuce, (two) cheese, fries) \n";
+				cout<<"\n1) "<<main1<<" P50"<<" (buns, beef patty, tomato, onions, lettuce, (one) cheese) \n";
+				cout<<"2) "<<main2<<" P75"<<" (buns, veggie patty, tomato, onions, pickles, mushrooms) \n";
+				cout<<"3) "<<main3<<" P100"<<"(buns, double beef patty, tomato, onions, lettuce, (two) cheese, fries) \n";
 				cout << "4) Go Back to Menu\n";
 				
-				cout<<"\nPlease Enter which main() Classics would you like to have?:";
+				cout<<"\nPlease Enter which main() Classics would you like to have? ";
 				
 				cin >> main;
 				switch (main) {
 				case 1: {
-					cout << "How many Classic++ you want?";
+					cout << "How many Classic++ you want? ";
 					cin >> qtyClassic;
 					totClassic = totClassic + (50 * qtyClassic);
 					totMain = totMain + totClassic;
 				} break;
 				case 2: {
-					cout << "How many Veggie++ you want?";
+					cout << "How many Veggie++ you want? ";
 					cin >> qtyVeggie;
 					totVeggie = totVeggie + (75 * qtyVeggie);
 					totMain = totMain + totVeggie;
 				} break;
 				case 3: {
-					cout << "How many Double++ you want?";
+					cout << "How many Double++ you want? ";
 					cin >> qtyDouble;
 					totDouble = totDouble + (100 * qtyDouble);
 					totMain = totMain + totDouble;
@@ -118,12 +200,12 @@ int main()
 				cout<<"\t\t\t|                    SPECIAL CLASSES                    |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
 				
-				cout<<"\n1 "<<special1<<" P180"<<"(four cheese as main ingredients—mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
-				cout<<"2 "<<special2<<" P150"<<"(buns, beef patty, barbecue sauce, bacon, onions, lettuce, tomato) \n";
-				cout<<"3 "<<special3<<" P160"<<" (buns, double patty, bacon, four cheese, tomato, onion, lettuce) \n";
+				cout<<"\n1) "<<special1<<" P180"<<"(four cheese as main ingredients—mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
+				cout<<"2) "<<special2<<" P150"<<"(buns, beef patty, barbecue sauce, bacon, onions, lettuce, tomato) \n";
+				cout<<"3) "<<special3<<" P180"<<" (buns, double patty, bacon, four cheese, tomato, onion, lettuce) \n";
 				cout << "4) Go Back to Menu\n";
 				
-				cout<<"\nPlease Enter which special classes would you like to have?:";
+				cout<<"\nPlease Enter which special classes would you like to have? ";
 				cin>>special;
 				
 				switch (special) { 
@@ -134,15 +216,15 @@ int main()
 					totSpecial = totSpecial + totA;
 				} break; //end of switch(necklace): case 1
 				case 2: {
-					cout << "How many The B (Barbecue) Language you want?";
+					cout << "How many The B (Barbecue) Language you want? ";
 					cin >> qtyB;
 					totB = totB + (150 * qtyB);
 					totSpecial = totSpecial + totB;
 				} break; //end of switch(necklace): case 2
 				case 3: {
-					cout << "How The A (All-In) Language you want?";
+					cout << "How The A (All-In) Language you want? ";
 					cin >> qtyA;
-					totA = totA + (160 * qtyA);
+					totA = totA + (180 * qtyA);
 					totSpecial = totSpecial + totA;
 				} break;
 					default:
@@ -159,32 +241,32 @@ int main()
 				cout<<"\t\t\t|-------------------------------------------------------|\n";
 				cout<<"\t\t\t|                    STATEMENT BURGERS                  |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
+				
+				cout<<"\n1) "<<statement1<<" P170"<<"(buns, salmon, onions, tomato, lettuce) \n";
+				cout<<"2) "<<statement2<<" P100"<<"(buns, sliced ham, onions, tomato, lettuce) \n";
+				cout<<"3) "<<statement3<<" P180"<<" (buns, breaded and deep fried beef, bacon, onion, lettuce, tomato, french fries) \n";
 				cout << "4) Go Back to Menu\n";
 				
-				cout<<"\n1 "<<statement1<<" P180"<<"(buns, salmon, onions, tomato, lettuce) \n";
-				cout<<"2 "<<statement2<<" P150"<<"(buns, sliced ham, onions, tomato, lettuce) \n";
-				cout<<"3 "<<statement3<<" P160"<<" (buns, breaded and deep fried beef, bacon, onion, lettuce, tomato, french fries) \n";
-				
-				cout<<"\nPlease Enter which special classes would you like to have?:";
+				cout<<"\nPlease Enter which statement burgers would you like to have? ";
 				cin>>statement;
 				
 				switch (statement) {
 				case 1: {
-					cout << "How many Fish Statement do you want?";
+					cout << "How many Fish Statement do you want? ";
 					cin >> qtyFried;
-					totFried = totFried + (180 * qtyFried);
+					totFried = totFried + (170 * qtyFried);
 					totStatement = totStatement + totFried;
 				} break;
 				case 2: {
-					cout << "How many Ham Statement do you want?";
+					cout << "How many Ham Statement do you want? ";
 					cin >> qtyHam;
-					totHam = totHam + (150 * qtyHam);
+					totHam = totHam + (100 * qtyHam);
 					totStatement = totStatement + totHam;
 				} break;
 				case 3: {
-					cout << "How many Fried Statement do you want?";
+					cout << "How many Fried Statement do you want? ";
 					cin >> qtyFried;
-					totFried = 	totFried + (100 * qtyFried);
+					totFried = 	totFried + (180 * qtyFried);
 					totStatement = totStatement + 	totFried;
 				} break;
 				default:
@@ -208,14 +290,14 @@ int main()
 		system("cls");  // clear screen
 
 		// Formula for Total Bill
-		totCost = totMain + totSpecial + totStatement;
+		totCost = totClassic + totVeggie + totDouble+ totC+totB+totA+totFish+totHam+totFried;
 
 		//Summary 
 		cout<<"\t\t\t|-------------------------------------------------------|\n";
 		cout<<"\t\t\t|                  SUMMARY OF PURCHASES                 |\n";
 		cout<<"\t\t\t|-------------------------------------------------------|\n\n";
 		
-		cout << " The Classic++              	   = " << totClassic << " \n";
+		cout << " The Classic++              	    = " << totClassic << " \n";
 		cout << " The Veggie++                      = " << totVeggie << " \n";
 		cout << " The Double++                      = " << totDouble << " \n";
 		cout << " The C (Cheese) Language           = " << totC << " \n";
@@ -240,9 +322,9 @@ int main()
 	cout << " [choose 1] PWD/Senior Citizen \n";
 	cout << " [choose 2] Student  \n";
 	cout << " [choose 3] Voucher Codes  \n"; 
-	cout << " [choose 4] None \n";
-	cout << " Please choose one to avail discount: ";
+	cout << " [choose 4] None \n\n";
 	
+	cout << " Please choose one to avail discount: ";
 	cin >> discount;
 	
 	//Senior/PWD Discounts
@@ -332,7 +414,7 @@ int main()
 		
 		//if the student did not reach the grade limit they will have no discount
 		else{
-			cout<<"\n discount not applied";
+			cout<<"\n Discount not applied";
 			
 		double Change1 = Payment- totCost;
 		double TaxAmount = totCost * 10 / 100;
@@ -344,7 +426,7 @@ int main()
     	cout << "\nTotal:           P" << totCost;
 		cout << "\nChange:          P" << Change1;
 		
-		cout <<"\n\n Keep it up!The Burger++ is happy to serve you";
+		cout <<"\n\n Keep it up!The Burger++ is happy to serve you ";
 		}
 		
 	}
@@ -354,7 +436,7 @@ int main()
 	//The codes will change according to the management
 	else if(discount==3){
 		int cust;
-	
+		
 		cout<<"\n Please enter your voucher code  = ";
 		scanf("\n %d",&cust);
 		
@@ -515,7 +597,7 @@ int main()
 
 	if(choose==1)
 	 {
-		cout<<"     TECHNOLOGICAL INSTITUTE OF THE PHILIPPINES    \n";
+		cout<<"     TECHNOLOGICAL INSTITUTE OF THE PHILIPPINES    \n"; 
  		cout<<"                   Manila City                     \n";
  		cout<<"       ITE001 - Computer Programming 1             \n";
  		cout<<"         1st Semester S.Y. 2020-2021               \n";
@@ -544,101 +626,15 @@ int main()
 			options();
  	}
 }
-        
-    //Main menu
-	void options(){
-		char selection;
 
-	cout<<"\n Where do you want to go?";
-	cout<<"\n\n B - Burger++ Library";
-	cout<<"\n D - Developers";
-	cout<<"\n E - Exit";
-	
-	cout<<"\n\n Enter selection: ";
-
-// read the input 
-cin>>selection;
-
- switch(selection){
- 	system("cls");
- 	
-	case 'B' :
-	case 'b':{ 
-		system("cls");
-		menu();
-		
-	}
-	break;
-	case 'D' :
-	case 'd' :{
-		system("cls");
-		developers();
- }
-	break;
-	case 'E':
-	case 'e':{
-		system("cls");
-		exit();
-		break;
-	}
-
-	default : cout<<"\n Invalid selection";
-}
-	cout<<"\n";}
-
-//Introduction Title
-void welcome() {
-	char welcome[50]="WELCOME";
-	char welcome2[50]=" TO";
-	char welcome3[50]=" BURGER++";
-	printf("\n\n\n\n\n\t\t\t");
-	for(int wlc=0; wlc<strlen(welcome);wlc++){
-
-		printf(" %c",welcome[wlc]);
-		Sleep(200);
-	}
-
-	printf("\n\n\t\t\t\t ");
-	for(int wlc2=0; wlc2<strlen(welcome2) ;wlc2++){
-
-		printf(" %c",welcome2[wlc2]);
-		Sleep(200);
-	}
-
-	printf("\n\n\t\t\t ");
-	for(int wlc3=0; wlc3<strlen(welcome3) ;wlc3++){
-		if(welcome3[wlc3]!='D'){
-
-			printf(" %c",welcome3[wlc3]);
-		}
-		else{
-
-			printf(" %c",welcome3[wlc3]);
-		}
-
-		Sleep(200);
-	}
-}
-
-//position
-void gotoxy(int x, int y)
-{
-	COORD d;
-	d.X = x;
-	d.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), d);
-}
-
-//Loading screen function
-void load()
-{
-	char a = 219;
-	gotoxy(36, 14);
-	cout << "Loading..."<< endl;
-	gotoxy(30,16);
-	for(int r =1; r<=20; r++)
+//Exit Function		
+	void exit()
 	{
-		for(int q=0; q<=100000000; q++);
-		cout << a;
+        cout << "                                      " << endl;
+        cout << "                                      " << endl;
+        cout << "           T H A N K  Y O U       \n\n" << endl;
+        cout << "           F O R  U S I N G       \n\n" << endl;
+        cout << "        T H I S  P R O G R A M        " << endl;
+        cout << "                                      " << endl;
+        cout << "                                      " << endl;
 	}
-}
