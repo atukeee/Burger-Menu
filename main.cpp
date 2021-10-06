@@ -132,7 +132,7 @@ cin>>selection;
 	char special1[]="The C(Cheese) Language", special2[]="The B(Barbecue) Language",special3[]="The A(All-in) Language";
 	char statement1[]="The Fish Statement", statement2[]="The Ham Statement", statement3[]="The Fried Statement";
 	int trans, main, qtyClassic, qtyVeggie, qtyDouble, special, qtyA, qtyB, qtyC, statement,qtyFish, qtyHam, qtyFried;
-	int totMain = 0, totClassic = 0, totVeggie = 0, totDouble = 0, totSpecial=0,totA=0,totB=0,totC=0,totStatement=0, totFried=0,totHam=0,totFish=0, totCost = 0, Payment = 0, change = 0;
+	float totMain = 0, totClassic = 0, totVeggie = 0, totDouble = 0, totSpecial=0,totA=0,totB=0,totC=0,totStatement=0, totFried=0,totHam=0,totFish=0, totCost = 0, Payment = 0, change = 0;
 
 	do {
 		cout<<"\t\t\t|-------------------------------------------------------|\n";
@@ -157,9 +157,9 @@ cin>>selection;
 				cout<<"\t\t\t|-------------------------------------------------------|\n";
 				cout<<"\t\t\t|                     MAIN() CLASSICS                   |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
-				cout<<"\n1) "<<main1<<" P50"<<" (buns, beef patty, tomato, onions, lettuce, (one) cheese) \n";
-				cout<<"2) "<<main2<<" P75"<<" (buns, veggie patty, tomato, onions, pickles, mushrooms) \n";
-				cout<<"3) "<<main3<<" P100"<<"(buns, double beef patty, tomato, onions, lettuce, (two) cheese, fries) \n";
+				cout<<"\n1) "<<main1<<" P50.00"<<" (buns, beef patty, tomato, onions, lettuce, (one) cheese) \n";
+				cout<<"2) "<<main2<<" P75.00"<<" (buns, veggie patty, tomato, onions, pickles, mushrooms) \n";
+				cout<<"3) "<<main3<<" P100.00"<<"(buns, double beef patty, tomato, onions, lettuce, (two) cheese, fries) \n";
 				cout << "4) Go Back to Menu\n";
 				
 				cout<<"\nPlease Enter which main() Classics would you like to have? ";
@@ -169,19 +169,19 @@ cin>>selection;
 				case 1: {
 					cout << "How many Classic++ you want? ";
 					cin >> qtyClassic;
-					totClassic = totClassic + (50 * qtyClassic);
+					totClassic = totClassic + (50.00 * qtyClassic);
 					totMain = totMain + totClassic;
 				} break;
 				case 2: {
 					cout << "How many Veggie++ you want? ";
 					cin >> qtyVeggie;
-					totVeggie = totVeggie + (75 * qtyVeggie);
+					totVeggie = totVeggie + (75.00 * qtyVeggie);
 					totMain = totMain + totVeggie;
 				} break;
 				case 3: {
 					cout << "How many Double++ you want? ";
 					cin >> qtyDouble;
-					totDouble = totDouble + (100 * qtyDouble);
+					totDouble = totDouble + (100.00 * qtyDouble);
 					totMain = totMain + totDouble;
 				} 
 				break;
@@ -200,9 +200,9 @@ cin>>selection;
 				cout<<"\t\t\t|                    SPECIAL CLASSES                    |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
 				
-				cout<<"\n1) "<<special1<<" P180"<<"(four cheese as main ingredients—mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
-				cout<<"2) "<<special2<<" P150"<<"(buns, beef patty, barbecue sauce, bacon, onions, lettuce, tomato) \n";
-				cout<<"3) "<<special3<<" P180"<<" (buns, double patty, bacon, four cheese, tomato, onion, lettuce) \n";
+				cout<<"\n1) "<<special1<<" P180.00"<<"(four cheese as main ingredients—mozzarella, cheddar, parmesan, swiss, buns, beef patty, tomato, onions, lettuce) \n";
+				cout<<"2) "<<special2<<" P150.00"<<"(buns, beef patty, barbecue sauce, bacon, onions, lettuce, tomato) \n";
+				cout<<"3) "<<special3<<" P180.00"<<" (buns, double patty, bacon, four cheese, tomato, onion, lettuce) \n";
 				cout << "4) Go Back to Menu\n";
 				
 				cout<<"\nPlease Enter which special classes would you like to have? ";
@@ -212,19 +212,19 @@ cin>>selection;
 				case 1: {
 					cout << "How many C(Cheese) Language you want? ";
 					cin >> qtyC;
-					totC = totC + (180 * qtyC);
+					totC = totC + (180.00 * qtyC);
 					totSpecial = totSpecial + totA;
 				} break; //end of switch(necklace): case 1
 				case 2: {
 					cout << "How many The B (Barbecue) Language you want? ";
 					cin >> qtyB;
-					totB = totB + (150 * qtyB);
+					totB = totB + (150.00 * qtyB);
 					totSpecial = totSpecial + totB;
 				} break; //end of switch(necklace): case 2
 				case 3: {
 					cout << "How The A (All-In) Language you want? ";
 					cin >> qtyA;
-					totA = totA + (180 * qtyA);
+					totA = totA + (180.00 * qtyA);
 					totSpecial = totSpecial + totA;
 				} break;
 					default:
@@ -242,9 +242,9 @@ cin>>selection;
 				cout<<"\t\t\t|                    STATEMENT BURGERS                  |\n";
 				cout<<"\t\t\t|-------------------------------------------------------|\n\n";
 				
-				cout<<"\n1) "<<statement1<<" P170"<<"(buns, salmon, onions, tomato, lettuce) \n";
-				cout<<"2) "<<statement2<<" P100"<<"(buns, sliced ham, onions, tomato, lettuce) \n";
-				cout<<"3) "<<statement3<<" P180"<<" (buns, breaded and deep fried beef, bacon, onion, lettuce, tomato, french fries) \n";
+				cout<<"\n1) "<<statement1<<" P170.00"<<"(buns, salmon, onions, tomato, lettuce) \n";
+				cout<<"2) "<<statement2<<" P100.00"<<"(buns, sliced ham, onions, tomato, lettuce) \n";
+				cout<<"3) "<<statement3<<" P180.00"<<" (buns, breaded and deep fried beef, bacon, onion, lettuce, tomato, french fries) \n";
 				cout << "4) Go Back to Menu\n";
 				
 				cout<<"\nPlease Enter which statement burgers would you like to have? ";
@@ -254,19 +254,19 @@ cin>>selection;
 				case 1: {
 					cout << "How many Fish Statement do you want? ";
 					cin >> qtyFried;
-					totFried = totFried + (170 * qtyFried);
+					totFried = totFried + (170.00 * qtyFried);
 					totStatement = totStatement + totFried;
 				} break;
 				case 2: {
 					cout << "How many Ham Statement do you want? ";
 					cin >> qtyHam;
-					totHam = totHam + (100 * qtyHam);
+					totHam = totHam + (100.00 * qtyHam);
 					totStatement = totStatement + totHam;
 				} break;
 				case 3: {
 					cout << "How many Fried Statement do you want? ";
 					cin >> qtyFried;
-					totFried = 	totFried + (180 * qtyFried);
+					totFried = 	totFried + (180.00 * qtyFried);
 					totStatement = totStatement + 	totFried;
 				} break;
 				default:
@@ -297,15 +297,15 @@ cin>>selection;
 		cout<<"\t\t\t|                  SUMMARY OF PURCHASES                 |\n";
 		cout<<"\t\t\t|-------------------------------------------------------|\n\n";
 		
-		cout << " The Classic++              	    = " << totClassic << " \n";
-		cout << " The Veggie++                      = " << totVeggie << " \n";
-		cout << " The Double++                      = " << totDouble << " \n";
-		cout << " The C (Cheese) Language           = " << totC << " \n";
-		cout << " The B (Barbecue) Language         = " << totB << " \n";
-		cout << " The A (All-In) Language           = " << totA << "\n";
-		cout << " The Fish Statement                = " << totFish << "\n";
-		cout << " The Ham Statement                 = " << totHam << "\n";
-		cout << " The Fried Statement               = " << totFried << "\n";
+		cout << " The Classic++              	    = " << totClassic <<".00"<< " \n";
+		cout << " The Veggie++                      = " << totVeggie <<".00"<< " \n";
+		cout << " The Double++                      = " << totDouble <<".00"<< " \n";
+		cout << " The C (Cheese) Language           = " << totC <<".00"<< " \n";
+		cout << " The B (Barbecue) Language         = " << totB <<".00"<< " \n";
+		cout << " The A (All-In) Language           = " << totA <<".00"<< "\n";
+		cout << " The Fish Statement                = " << totFish <<".00"<< "\n";
+		cout << " The Ham Statement                 = " << totHam <<".00"<< "\n";
+		cout << " The Fried Statement               = " << totFried <<".00"<< "\n";
 		cout << "                                            \n";
 		cout << "----------------------------------------------\n";
 		cout << "   Total Burger++ Bill             = " << totCost <<"\n";
